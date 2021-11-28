@@ -18,6 +18,15 @@ body{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.form-floating {
+.form-signin .form-group {
   margin-top: 10px;
+}
+.form-registration .form-floating {
+  margin-top: 5px;
+}
+.form-registration .form-floating input {
+  max-height: 50px;
+}
+.form-registration .form-floating label {
+  font-size: 15px;
 }
