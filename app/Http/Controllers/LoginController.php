@@ -20,11 +20,11 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/dashboard');
-        // }
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        }
 
-        dd('berhasil login');
+        return back()->with('LoginFailed', 'Login Failed');
     }
 }

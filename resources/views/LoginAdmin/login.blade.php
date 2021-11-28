@@ -11,6 +11,15 @@
     </div>
     @endif
 
+    @if ($message = Session::get('LoginFailed'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ $message }}
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+
     <div class="col-lg-4 shadow p-5 bg-light">
         <main class="form-signin">
             <h2 class="h3 mb-3 fw-normal text-center text-muted">Login <strong>Admin</strong></h2>
