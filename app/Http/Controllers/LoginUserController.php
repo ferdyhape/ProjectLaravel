@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class LoginUserController extends Controller
 {
     public function index()
     {
-        return view('LoginAdmin.login', [
+        return view('LoginUser.login', [
             "title" => "Login"
         ]);
     }
@@ -22,13 +22,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/');
         }
-
-        // menampilkan data yang sedang login
-        // $nama = Auth::user()->name;
-        // dd($nama);
 
         return back()->with('LoginFailed', 'Login Failed');
     }

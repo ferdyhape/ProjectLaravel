@@ -1,9 +1,9 @@
-@extends('layouts.main')
+@extends('frontend.layouts.main')
 @section('container')
 <div class="row justify-content-center mt-5">
     <div class="col-lg-4 shadow p-5 bg-light mb-5">
         <main class="form-registration">
-            <h2 class="h3 mb-3 fw-normal text-center text-muted">Registration <strong>Admin</strong></h2>
+            <h2 class="h3 mb-3 fw-normal text-center text-muted">Please <strong>Register</strong></h2>
 
             <div class="text-center m-3"><i class="bi bi-person-circle" style="font-size: 100px;"></i></div>
             <form action="/register" method="POST">

@@ -18,6 +18,45 @@
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         @auth
+                        @if (auth()->user()->level == 'admin')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Welcome, {{ auth()->user()->name }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a>
+                                <div class="dropdown-divider"></div>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-box-arrow-right"></i> Logout</a>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                        @elseif (auth()->user()->level == 'user')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Welcome, {{ auth()->user()->name }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-box-arrow-right"></i> Logout</a>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                        @endif
+                        @else
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link {{ ($title === "Login" ? 'active' : '') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        </li>
+                        @endauth
+
+
+                        <!-- @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Welcome, {{ auth()->user()->name }}
@@ -37,7 +76,7 @@
                         <li class="nav-item">
                             <a href="/login" class="nav-link {{ ($title === "Login" ? 'active' : '') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                         </li>
-                        @endauth
+                        @endauth -->
                     </ul>
                 </div>
             </div>

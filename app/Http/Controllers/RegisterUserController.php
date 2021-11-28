@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Contracts\Support\ValidatedData;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class RegisterController extends Controller
+class RegisterUserController extends Controller
 {
     public function index()
     {
-        return view('LoginAdmin.register', [
+        return view('LoginUser.register', [
             "title" => "Register"
         ]);
     }
@@ -24,12 +22,12 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
         ]);
 
-        $validatedData['level'] = 'admin';
+        $validatedData['level'] = 'user';
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
 
         $request->session()->flash('success', 'Registrasi berhasil, silahkan login');
 
-        return redirect('/login');
+        return redirect('/loginUser');
     }
 }
