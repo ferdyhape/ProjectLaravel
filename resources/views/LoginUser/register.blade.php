@@ -3,10 +3,10 @@
 <div class="row justify-content-center mt-5">
     <div class="col-lg-4 shadow p-5 bg-light mb-5">
         <main class="form-registration">
-            <h2 class="h3 mb-3 fw-normal text-center text-muted">Register <strong>Admin</strong></h2>
+            <h2 class="h3 mb-3 fw-normal text-center text-muted">Register <strong>User</strong></h2>
 
             <div class="text-center m-3"><i class="bi bi-person-circle" style="font-size: 100px;"></i></div>
-            <form action="/register" method="POST">
+            <form action="/registerUser" method="POST">
                 @csrf
                 <div class="form-floating">
                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Name" required value="{{ old('name') }}">

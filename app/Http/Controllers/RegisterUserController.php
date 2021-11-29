@@ -28,6 +28,6 @@ class RegisterUserController extends Controller
 
         $request->session()->flash('success', 'Registrasi berhasil, silahkan login');
 
-        return redirect('/loginUser');
+        return redirect('/login');
     }
 }

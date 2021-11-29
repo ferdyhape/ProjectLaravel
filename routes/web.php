@@ -25,6 +25,7 @@ Route::get('/about', function () {
 });
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::get('/registerUser', [RegisterUserController::class, 'index'])->middleware('guest');
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth', 'ceklevel:admin');
@@ -32,4 +33,5 @@ Route::get('/dashboard', function () {
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/registerUser', [RegisterUserController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout']);
