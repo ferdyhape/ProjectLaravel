@@ -14,6 +14,7 @@ class Barang extends Model
         'harga',
         'jumlah',
         'category_id',
+        'gambar',
     ];
 
     protected $guarded = ['id'];

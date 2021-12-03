@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardBarangController extends Controller
 {
@@ -43,18 +44,26 @@ class DashboardBarangController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'category_id' => 'required|integer',
-            'nama' => 'required|max:255',
+            'nama' => 'required|min:3|max:255',
             'harga' => 'required|integer',
             'jumlah' => 'required|integer',
+            'gambar' => 'required|image'
         ]);
+
+        if ($request->file('gambar')) {
+            $nama_gambar = $request->file('gambar')->store('product-images');
+        }
+
+        $validatedData['gambar'] = $nama_gambar;
 
         Barang::create($validatedData);
 
-        $request->session()->flash('success', 'Data barang berhasil ditambahkan');
+        // $request->session()->flash('success', 'Data barang berhasil ditambahkan');
 
-        return redirect('/dashboard/barang');
+        return redirect('/dashboard/barang')->with('success', 'Data barang berhasil ditambahkan');
     }
 
     /**
@@ -95,12 +104,24 @@ class DashboardBarangController extends Controller
      */
     public function update(Request $request, Barang $barang)
     {
-        $validatedData = $request->validate([
+
+        $rules = ([
             'category_id' => 'required|integer',
-            'nama' => 'required|max:255',
+            'nama' => 'required|min:3|max:255',
             'harga' => 'required|integer',
+            'gambar' => 'required|image',
             'jumlah' => 'required|integer',
         ]);
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('gambar')) {
+            if ($request->gambarLama) {
+                Storage::delete($request->gambarLama);
+            }
+            $nama_gambar = $request->file('gambar')->store('product-images');
+        }
+        $validatedData['gambar'] = $nama_gambar;
 
         Barang::where('id', $barang->id)->update($validatedData);
 
@@ -117,6 +138,10 @@ class DashboardBarangController extends Controller
      */
     public function destroy(Barang $barang)
     {
+        if ($barang->gambar) {
+            Storage::delete($barang->gambar);
+        }
+
         Barang::destroy($barang->id);
         return redirect('dashboard/barang')->with('success', 'Data barang berhasil dihapus');
     }

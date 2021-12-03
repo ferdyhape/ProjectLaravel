@@ -15,23 +15,48 @@
             @csrf
             <div class="mb-3">
                 <label for="supplier_name" class="form-label">Nama Supplier</label>
-                <input type="text" class="form-control" id="supplier_name" name="supplier_name" required autofocus>
+                <input type="text" class="form-control @error('supplier_name') is-invalid @enderror" id="supplier_name" name="supplier_name" required autofocus>
+                @error('supplier_name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="item_name" class="form-label">Nama Barang</label>
-                <input type="text" class="form-control" id="item_name" name="item_name" required>
+                <input type="text" class="form-control @error('item_name') is-invalid @enderror" id="item_name" name="item_name" required>
+                @error('item_name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="qty" class="form-label">Jumlah</label>
-                <input type="number" class="form-control" id="qty" name="qty" required>
+                <input type="number" class="form-control @error('qty') is-invalid @enderror" id="qty" name="qty" required>
+                @error('qty')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Total Harga</label>
-                <input type="number" class="form-control" id="price" name="price" required>
+                <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" required>
+                @error('price')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="transaction_date" class="form-label">Tanggal Transaksi</label>
-                <input type="date" class="form-control" id="transaction_date" name="transaction_date" required>
+                <input type="date" class="form-control @error('transaction_date') is-invalid @enderror" id="transaction_date" name="transaction_date" required>
+                @error('transaction_date')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="d-flex justify-content-between">
                 <a href="{{ URL::previous() }}" class="btn btn-info">Kembali</a>

@@ -15,15 +15,30 @@
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Barang</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" required autofocus>
+                @error('nama')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="harga" class="form-label">Harga</label>
-                <input type="number" class="form-control" id="harga" name="harga" required>
+                <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" required>
+                @error('harga')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="jumlah" class="form-label">Jumlah</label>
-                <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                <input type="number" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" name="jumlah" required>
+                @error('jumlah')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-group mb-3">
                 <label for="category_id">Kategori:</label>
@@ -34,8 +49,17 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Default file input example</label>
-                <input class="form-control" type="file" id="formFile">
+                <label for="gambar" class="form-label">Gambar Barang</label>
+                <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar" required onchange="previewImage()">
+                @error('gambar')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="img-preview">Preview Gambar</label>
+                <img class="img-preview img-fluid mt-1" id="img-preview">
             </div>
             <div class="d-flex justify-content-between">
                 <a href="{{ URL::previous() }}" class="btn btn-info mt-3">Kembali</a>
@@ -44,4 +68,20 @@
         </form>
     </div>
 </div>
+
+<script>
+    function previewImage() {
+        const image = document.querySelector('#gambar');
+        const imgPreview = document.querySelector('.img-preview')
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 @endsection
