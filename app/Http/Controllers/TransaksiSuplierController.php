@@ -93,8 +93,9 @@ class TransaksiSuplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TransaksiSuplier $transaksiSuplier)
     {
-        //
+        TransaksiSuplier::destroy($transaksiSuplier->id);
+        return redirect('dashboard/transaksi-suplier')->with('success', 'Data Transaksi berhasil dihapus');
     }
 }

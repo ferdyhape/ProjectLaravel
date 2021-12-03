@@ -20,6 +20,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/category*') ? 'active' : '' }}" href="/dashboard/category">
+                    <span data-feather="hash"></span>
+                    Kategori
+                </a>
+            </li>
+            <li class="nav-item">
                 <form action="/logout" method="POST">
                     @csrf
                     <button type="submit" class="nav-link border-0 bg-transparent">

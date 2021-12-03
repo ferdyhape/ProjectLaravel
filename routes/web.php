@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegisterUserController;
@@ -46,6 +47,9 @@ Route::resource('/dashboard/barang', DashboardBarangController::class)->middlewa
 
 // dashboard transaksi suplier
 Route::resource('/dashboard/transaksi-suplier', TransaksiSuplierController::class)->middleware('auth', 'ceklevel:admin');
+
+// dashboard kategori
+Route::resource('/dashboard/category', CategoryController::class)->middleware('auth', 'ceklevel:admin');
 
 
 // Route::get('/dashboard', function () {

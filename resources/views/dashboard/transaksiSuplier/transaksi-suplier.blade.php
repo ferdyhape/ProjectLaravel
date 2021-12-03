@@ -23,6 +23,7 @@
                     <th>Jumlah</th>
                     <th>Total Harga</th>
                     <th>Tanggal Transaksi</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
 
@@ -35,6 +36,13 @@
                     <td>{{ $t->qty }}</td>
                     <td>{{ $t->price }}</td>
                     <td>{{ $t->transaction_date }}</td>
+                    <td class="d-flex justify-content-center">
+                        <form action="transaksi-suplier/{{ $t->id }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button class="badge bg-danger border-0" onclick="return confirm('beneran mau hapus?')"><i class="bi bi-trash" style="font-size: 18px;"></i></button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
