@@ -5,10 +5,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\DashboardBarangController;
 use App\Http\Controllers\TransaksiSuplierController;
-
+use App\Http\Controllers\UserControlller;
 
 Route::get('/', function () {
     return view('frontend.index', [
@@ -36,6 +35,8 @@ Route::get('/registerAdmin', [RegisterController::class, 'registerAdmin'])->midd
 Route::get('/registerUser', [RegisterController::class, 'registerUser'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::resource('/u', UserControlller::class)->middleware('auth');
+
 // dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth', 'ceklevel:admin');
 
@@ -47,8 +48,3 @@ Route::resource('/dashboard/transaksi-suplier', TransaksiSuplierController::clas
 
 // dashboard kategori
 Route::resource('/dashboard/category', CategoryController::class)->middleware('auth', 'ceklevel:admin');
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard.index');
-// })->middleware('auth', 'ceklevel:admin');

@@ -2,9 +2,13 @@
     <div class="position-sticky pt-3 px-2">
 
         <div>
-            <img src="{{asset('storage/' .auth()->user()->photo)}}" class="rounded mx-auto mb-3 mt-2 d-block img-fluid" style="max-width: 70%;" alt="...">
+            <img src="{{asset('storage/' .auth()->user()->photo)}}" class="rounded-circle mx-auto mb-3 mt-2 d-block img-fluid" style="max-width: 70%;" alt="...">
 
-            <p class="text-center">{{ auth()->user()->name }}</p>
+            <p class="text-center mb-0">{{ auth()->user()->name }}</p>
+            <a href="/u/{{ auth()->user()->id }}/edit" class="text-decoration-none">
+                <p class="text-center">Update profil</p>
+            </a>
+
         </div>
         <div class="border-bottom my-2 mx-2"></div>
         <div></div>

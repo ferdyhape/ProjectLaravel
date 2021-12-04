@@ -38,7 +38,7 @@
                         <td><a href="category/{{ $b->category->id }}" class="text-decoration-none text-primary">{{ $b->category->name }}</a></td>
                         <td class="d-flex justify-content-evenly">
                             <a href="barang/{{ $b->id }}" class="badge bg-success"><i class="bi bi-eye-fill" style="font-size: 18px;"></i></a>
-                            <a href=" barang/{{ $b->id }}/edit" class="badge bg-warning"><i class="bi bi-pencil-square" style="font-size: 18px;"></i></a>
+                            <a href="barang/{{ $b->id }}/edit" class="badge bg-warning"><i class="bi bi-pencil-square" style="font-size: 18px;"></i></a>
                             <form action="barang/{{ $b->id }}" method="POST">
                                 @method('delete')
                                 @csrf
