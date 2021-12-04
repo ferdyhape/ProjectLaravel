@@ -19,13 +19,13 @@ class CategorySeeder extends Seeder
             'name' => 'Barang Elektronik',
         ]);
         Category::create([
-            'name' => 'Alat Mandi',
+            'name' => 'Barang Mandi',
         ]);
         Category::create([
             'name' => 'Alat Tulis',
         ]);
         Category::create([
-            'name' => 'Alat Dapur',
+            'name' => 'Barang Dapur',
         ]);
     }
 }

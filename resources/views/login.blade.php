@@ -40,8 +40,8 @@
                 </div>
 
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                <div class="d-flex justify-content-between mb-3">
-                    <div class="mt-2"><a href="/register">Register Admin</a></div>
+                <div class="d-flex justify-content-between mb-2">
+                    <div class="mt-2"><a href="/registerAdmin">Register Admin</a></div>
                     <div class="mt-2"><a href="/registerUser">Register User</a></div>
                 </div>
                 <!-- <small class="d-block mt-2"></small>

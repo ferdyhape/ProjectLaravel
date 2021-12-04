@@ -31,13 +31,10 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-// register admin
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+// register
+Route::get('/registerAdmin', [RegisterController::class, 'registerAdmin'])->middleware('guest');
+Route::get('/registerUser', [RegisterController::class, 'registerUser'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
-
-// register user
-Route::get('/registerUser', [RegisterUserController::class, 'index'])->middleware('guest');
-Route::post('/registerUser', [RegisterUserController::class, 'store']);
 
 // dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth', 'ceklevel:admin');

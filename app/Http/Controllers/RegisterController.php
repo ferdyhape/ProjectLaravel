@@ -10,9 +10,15 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
-    public function index()
+    public function registerAdmin()
     {
-        return view('LoginAdmin.register', [
+        return view('register-admin', [
+            "title" => "Register"
+        ]);
+    }
+    public function registerUser()
+    {
+        return view('register-user', [
             "title" => "Register"
         ]);
     }
@@ -22,9 +28,17 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:5|max:255',
+            'phone' => 'required',
+            'photo' => 'required|image',
+            'address' => 'required|max:20',
+            'level' => 'required'
         ]);
+        if ($request->file('photo')) {
+            $nama_photo = $request->file('photo')->store('user-images');
+        }
 
-        $validatedData['level'] = 'admin';
+        $validatedData['photo'] = $nama_photo;
+
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
 
