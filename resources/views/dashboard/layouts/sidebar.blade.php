@@ -2,7 +2,7 @@
     <div class="position-sticky pt-3 px-2">
 
         <div>
-            <img src="{{asset('storage/' .auth()->user()->photo)}}" class="rounded-circle mx-auto mb-3 mt-2 d-block img-fluid" style="max-width: 70%;" alt="...">
+            <img src="{{asset('storage/' .auth()->user()->photo)}}" class="rounded-circle mx-auto mb-3 mt-2 d-block img-fluid" style="max-width: 70%;" alt="foto-user">
 
             <p class="text-center mb-0">{{ auth()->user()->name }}</p>
             <a href="/u/{{ auth()->user()->id }}/edit" class="text-decoration-none">
@@ -21,13 +21,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/barang*') ? 'active' : '' }}" href="/dashboard/barang">
-                    <span data-feather="box"></span>
+                    <span data-feather="package"></span>
                     Barang
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/category*') ? 'active' : '' }}" href="/dashboard/category">
-                    <span data-feather="hash"></span>
+                    <span data-feather="tag"></span>
                     Kategori
                 </a>
             </li>
@@ -35,6 +35,12 @@
                 <a class="nav-link {{ Request::is('dashboard/transaksi-suplier*') ? 'active' : '' }}" href="/dashboard/transaksi-suplier">
                     <span data-feather="shopping-cart"></span>
                     Transaksi Suplier
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">
+                    <span data-feather="monitor"></span>
+                    Guest Side
                 </a>
             </li>
             <div class="border-bottom my-2 mx-2"></div>

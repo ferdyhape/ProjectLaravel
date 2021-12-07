@@ -59,7 +59,7 @@ class UserControlller extends Controller
      */
     public function edit(Request $request)
     {
-        return view('edit-user', [
+        return view('frontend.edit-user', [
             'user' => $request->user(),
             'title' => 'Edit Profil',
         ]);

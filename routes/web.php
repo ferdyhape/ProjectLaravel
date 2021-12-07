@@ -9,21 +9,21 @@ use App\Http\Controllers\DashboardBarangController;
 use App\Http\Controllers\TransaksiSuplierController;
 use App\Http\Controllers\UserControlller;
 
-Route::get('/', function () {
-    return view('frontend.index', [
-        "title" => "Home"
-    ]);
-});
-Route::get('/contact', function () {
-    return view('frontend.contact', [
-        "title" => "Contact"
-    ]);
-});
-Route::get('/about', function () {
-    return view('frontend.about', [
-        "title" => "About"
-    ]);
-});
+// Route::get('/', function () {
+//     return view('frontend.index', [
+//         "title" => "Home"
+//     ]);
+// });
+// Route::get('/contact', function () {
+//     return view('frontend.contact', [
+//         "title" => "Contact"
+//     ]);
+// });
+// Route::get('/about', function () {
+//     return view('frontend.about', [
+//         "title" => "About"
+//     ]);
+// });
 
 // login logout
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -48,3 +48,21 @@ Route::resource('/dashboard/transaksi-suplier', TransaksiSuplierController::clas
 
 // dashboard kategori
 Route::resource('/dashboard/category', CategoryController::class)->middleware('auth', 'ceklevel:admin');
+
+Route::get('/', function () {
+    return view('frontend.index', [
+        'title' => 'Beranda',
+    ]);
+});
+
+Route::get('/tentang-kami', function () {
+    return view('frontend.tentang-kami', [
+        'title' => 'Tentang Kami'
+    ]);
+});
+Route::get('/member-card/{id}', [LoginController::class, 'membercard']);
+// Route::get('/member-card/{id}', function () {
+//     return view('frontend.member-card', [
+//         'title' => 'Member Card'
+//     ]);
+// });

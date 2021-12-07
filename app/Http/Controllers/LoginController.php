@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
     public function index()
     {
-        return view('login', [
+        return view('frontend.login', [
             "title" => "Login"
         ]);
     }
@@ -41,5 +42,18 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    public function membercard(Request $request)
+    {
+
+        // $dataUser = User::where('id', $request)->get();
+
+        $dataUser = $request->user();
+        // dd($dataUser->name);
+
+        return view('frontend.member-card', [
+            'user' => $dataUser,
+            'title' => 'member Card'
+        ]);
     }
 }

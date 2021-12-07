@@ -12,13 +12,13 @@ class RegisterController extends Controller
 {
     public function registerAdmin()
     {
-        return view('register-admin', [
+        return view('frontend.register-admin', [
             "title" => "Register"
         ]);
     }
     public function registerUser()
     {
-        return view('register-user', [
+        return view('frontend.register-user', [
             "title" => "Register"
         ]);
     }
