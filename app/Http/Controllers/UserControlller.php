@@ -59,10 +59,17 @@ class UserControlller extends Controller
      */
     public function edit(Request $request)
     {
-        return view('frontend.edit-user', [
-            'user' => $request->user(),
-            'title' => 'Edit Profil',
-        ]);
+        if ($request->user()->level == 'admin') {
+            return view('dashboard.edit-user', [
+                'user' => $request->user(),
+                'title' => 'Edit Profil',
+            ]);
+        } elseif (auth()->user()->level == 'user') {
+            return view('frontend.edit-user', [
+                'user' => $request->user(),
+                'title' => 'Edit Profil',
+            ]);
+        }
     }
 
     /**

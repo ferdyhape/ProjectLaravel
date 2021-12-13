@@ -34,7 +34,7 @@
                 </div>
                 @enderror
             </div>
-            <div class=" mb-3">
+            <div class="mb-3">
                 <label for="jumlah" class="form-label">Jumlah</label>
                 <input type="number" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" name="jumlah" required value="{{ $barang->jumlah }}">
                 @error('jumlah')

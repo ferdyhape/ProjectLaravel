@@ -1,9 +1,9 @@
-@extends('frontend.layouts.newmain')
+@extends('dashboard.layouts.main')
 @section('container')
 <div class="row justify-content-center mt-5">
     <div class="col-lg-4 shadow p-5 bg-light mb-5">
         <main class="form-registration">
-            <h2 class="h3 mb-3 fw-normal text-center text-muted">Edit <strong>Profil User</strong></h2>
+            <h2 class="h3 mb-3 fw-normal text-center text-muted">Edit <strong>Profil Admin</strong></h2>
             <form action="/u/{{ $user->id }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf

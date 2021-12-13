@@ -60,9 +60,5 @@ Route::get('/tentang-kami', function () {
         'title' => 'Tentang Kami'
     ]);
 });
-Route::get('/member-card/{id}', [LoginController::class, 'membercard']);
-// Route::get('/member-card/{id}', function () {
-//     return view('frontend.member-card', [
-//         'title' => 'Member Card'
-//     ]);
-// });
+Route::get('/member-card', [LoginController::class, 'membercard'])->middleware('auth');
+Route::get('/member-card/cetak', [LoginController::class, 'cetakMemberCard'])->middleware('auth');
