@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
 <div class="container mt-5 mb-5 d-flex justify-content-center">
-    <div class="col-lg-5 shadow p-5 bg-light">
+    <div class="col-lg-5 shadow p-5 bg-light" id="form-all">
         <h2 class="h3 text-center mb-4">Tambah Kategori</h2>
         <form action="/dashboard/category/{{ $category->id }}" method="POST">
             @method('PUT')

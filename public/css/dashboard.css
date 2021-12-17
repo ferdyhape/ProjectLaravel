@@ -39,6 +39,10 @@ body {
   }
 }
 
+#form-all {
+  width: 450px;
+}
+
 .sidebar-sticky {
   position: relative;
   top: 0;

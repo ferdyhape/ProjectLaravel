@@ -8,22 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardBarangController;
 use App\Http\Controllers\TransaksiSuplierController;
 use App\Http\Controllers\UserControlller;
-
-// Route::get('/', function () {
-//     return view('frontend.index', [
-//         "title" => "Home"
-//     ]);
-// });
-// Route::get('/contact', function () {
-//     return view('frontend.contact', [
-//         "title" => "Contact"
-//     ]);
-// });
-// Route::get('/about', function () {
-//     return view('frontend.about', [
-//         "title" => "About"
-//     ]);
-// });
+use App\Models\Barang;
 
 // login logout
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -60,5 +45,13 @@ Route::get('/tentang-kami', function () {
         'title' => 'Tentang Kami'
     ]);
 });
+
+Route::get('/katalog-produk', function () {
+    return view('frontend.katalog-produk', [
+        'title' => 'Katalog Produk',
+        'barang' => Barang::all()
+    ]);
+});
+
 Route::get('/member-card', [LoginController::class, 'membercard'])->middleware('auth');
 Route::get('/member-card/cetak', [LoginController::class, 'cetakMemberCard'])->middleware('auth');

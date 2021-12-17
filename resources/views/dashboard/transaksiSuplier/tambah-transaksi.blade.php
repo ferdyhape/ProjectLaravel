@@ -9,7 +9,7 @@
         </button>
     </div>
     @endif
-    <div class="col-lg-5 shadow p-5 bg-light">
+    <div class="col-lg-5 shadow p-5 bg-light" id="form-all">
         <h2 class="h3 text-center mb-4">Tambah Transaksi</h2>
         <form action="/dashboard/transaksi-suplier" method="POST">
             @csrf
