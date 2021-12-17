@@ -13,7 +13,14 @@
     <div class="card shadow my-4">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary fs-3"><strong>List Barang</strong></h6>
-            <a class="btn btn-primary" href="/dashboard/barang/create" role="button">Tambah Barang</a>
+            <div class="d-flex">
+
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-primary"><a class="text-decoration-none text-white" href="/dashboard/cetak-barang">Cetak Data Barang</a></button>
+                    <button type="button" class="btn btn-primary"><a class="text-decoration-none text-white" href="/dashboard/barang/create">Tambah Barang</a></button>
+
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-hover table-striped">

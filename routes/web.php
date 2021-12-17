@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CetakController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardBarangController;
@@ -25,7 +26,7 @@ Route::resource('/u', UserControlller::class)->middleware('auth');
 // dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth', 'ceklevel:admin');
 
-//dashboard barang belum selesai
+//dashboard barang
 Route::resource('/dashboard/barang', DashboardBarangController::class)->middleware('auth', 'ceklevel:admin');
 
 // dashboard transaksi suplier
@@ -55,3 +56,6 @@ Route::get('/katalog-produk', function () {
 
 Route::get('/member-card', [LoginController::class, 'membercard'])->middleware('auth');
 Route::get('/member-card/cetak', [LoginController::class, 'cetakMemberCard'])->middleware('auth');
+
+// cetak tabel barang
+Route::get('/dashboard/cetak-barang', [CetakController::class, 'cetakTabelBarang'])->middleware('auth', 'ceklevel:admin');
