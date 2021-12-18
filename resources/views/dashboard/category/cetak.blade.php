@@ -5,34 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Barang</title>
+    <title>Data Kategori</title>
 </head>
 
 <body>
     <h1>
-        List Data Barang
+        List Data Kategori
     </h1>
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nama</th>
-                <th>Harga</th>
-                <th>Jumlah</th>
-                <th>Kategori</th>
+                <th>Nama Kategori</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($barang as $b)
+            @foreach($category as $c)
             <tr>
-                <td>{{ $b->id }}</td>
-                <td>{{ $b->nama }}</td>
-                <td>{{ $b->harga }}</td>
-                <td>{{ $b->jumlah }}</td>
-                <td>{{ $b->category->name }}</td>
+                <td>{{ $c->id }}</td>
+                <td>{{ $c->name }}</td>
             </tr>
+            @endforeach
         </tbody>
-        @endforeach
     </table>
     <style>
         table {
@@ -52,6 +46,7 @@
             padding: 10px 15px;
             border: 1px solid black;
             border-collapse: collapse;
+            text-align: left;
         }
     </style>
 </body>

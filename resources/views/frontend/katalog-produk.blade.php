@@ -2,7 +2,7 @@
 @section('container')
 <section class="container">
     <div class="row my-4">
-        @foreach($barang as $b)
+        @foreach($barang->sortBy('nama') as $b)
         <div class="col-lg-3 my-3">
             <div class="card shadow bg-white rounded border-0 " href="/">
                 <img src="{{asset('storage/' .$b->gambar)}}" class="mx-auto d-block" style="max-width: 100%;" alt="foto-user">

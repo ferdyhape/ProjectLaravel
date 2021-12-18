@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Barang</title>
+    <title>Data Transaksi</title>
 </head>
 
 <body>
@@ -16,23 +16,25 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nama</th>
-                <th>Harga</th>
+                <th>Nama Suplier</th>
+                <th>Nama Barang</th>
                 <th>Jumlah</th>
-                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Tanggal Transaksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($barang as $b)
+            @foreach($transaksi as $t)
             <tr>
-                <td>{{ $b->id }}</td>
-                <td>{{ $b->nama }}</td>
-                <td>{{ $b->harga }}</td>
-                <td>{{ $b->jumlah }}</td>
-                <td>{{ $b->category->name }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $t->supplier_name }}</td>
+                <td>{{ $t->item_name }}</td>
+                <td>{{ $t->qty }}</td>
+                <td>{{ $t->price }}</td>
+                <td>{{ $t->transaction_date }}</td>
             </tr>
+            @endforeach
         </tbody>
-        @endforeach
     </table>
     <style>
         table {
@@ -49,6 +51,7 @@
         table,
         th,
         td {
+            text-align: left;
             padding: 10px 15px;
             border: 1px solid black;
             border-collapse: collapse;

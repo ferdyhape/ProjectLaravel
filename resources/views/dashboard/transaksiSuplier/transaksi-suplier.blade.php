@@ -13,7 +13,12 @@
     <div class="card shadow my-4">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary fs-3"><strong>Data Transaksi</strong></h6>
-            <a class="btn btn-primary" href="/dashboard/transaksi-suplier/create" role="button">Tambah Transaksi</a>
+            <div class="d-flex">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-primary"><a class="text-decoration-none text-white" href="/dashboard/transaksi-suplier/create">Tambah Transaksi</a></button>
+                    <button type="button" class="btn btn-primary"><a class="text-decoration-none text-white" href="/dashboard/cetak-transaksi">Cetak Data Transaksi</a></button>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-hover table-striped">

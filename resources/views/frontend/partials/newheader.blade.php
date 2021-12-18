@@ -23,7 +23,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item text-capitalize" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a>
-                        <a class="dropdown-item text-capitalize" href="/u/{{ auth()->user()->id }}/edit"><i class="bi bi-layout-text-sidebar-reverse"></i> Edit Profil</a>
+                        <a class="dropdown-item text-capitalize" href="/u/{{ auth()->user()->id }}/edit"><i class="bi bi-person"></i> Edit Profil</a>
                         <div class="dropdown-divider"></div>
                         <form action="/logout" method="POST">
                             @csrf

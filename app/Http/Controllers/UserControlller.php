@@ -105,7 +105,7 @@ class UserControlller extends Controller
 
         $request->session()->flash('success', 'Profil berhasil diupdate');
 
-        return redirect('/');
+        return redirect('/dashboard');
     }
 
     /**

@@ -59,3 +59,5 @@ Route::get('/member-card/cetak', [LoginController::class, 'cetakMemberCard'])->m
 
 // cetak tabel barang
 Route::get('/dashboard/cetak-barang', [CetakController::class, 'cetakTabelBarang'])->middleware('auth', 'ceklevel:admin');
+Route::get('/dashboard/cetak-category', [CetakController::class, 'cetakTabelCategory'])->middleware('auth', 'ceklevel:admin');
+Route::get('/dashboard/cetak-transaksi', [CetakController::class, 'cetakTabelTransaksi'])->middleware('auth', 'ceklevel:admin');
