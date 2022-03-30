@@ -50,7 +50,7 @@ Route::get('/tentang-kami', function () {
 Route::get('/katalog-produk', function () {
     return view('frontend.katalog-produk', [
         'title' => 'Katalog Produk',
-        'barang' => Barang::all()
+        'barang' => Barang::all(),
     ]);
 });
 

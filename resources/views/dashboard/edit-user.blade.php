@@ -68,7 +68,7 @@
                     @enderror
                 </div>
                 <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Update</button>
-                <small class="d-block mt-2"><a href="/login">Login</a></small>
+                <!-- <small class="d-block mt-2"><a href="/login">Login</a></small> -->
             </form>
         </main>
     </div>

@@ -29,10 +29,6 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        // menampilkan data yang sedang login
-        // $nama = Auth::user()->name;
-        // dd($nama);
-
         return back()->with('LoginFailed', 'Login Failed');
     }
     public function logout(Request $request)

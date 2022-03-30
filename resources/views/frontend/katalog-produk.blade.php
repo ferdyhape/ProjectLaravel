@@ -5,12 +5,19 @@
         @foreach($barang->sortBy('nama') as $b)
         <div class="col-lg-3 my-3">
             <div class="card shadow bg-white rounded border-0 " href="/">
-                <img src="{{asset('storage/' .$b->gambar)}}" class="mx-auto d-block" style="max-width: 100%;" alt="foto-user">
+                <img src="{{asset('storage/' .$b->gambar)}}" class="mx-auto d-block" style="max-width: 100%;" alt="foto-produk">
                 <div class="card-body my-0 py-0">
-                    <h5 class="card-title mt-3 my-0">{{ $b->nama }}</h5>
+                    <h5 class="card-title mt-4 my-1 fw-bold">{{ $b->nama }}</h5>
+                    <p class="card-title fw-bold h6">DISKON 10%!</p>
                 </div>
-                <ul class="list-group list-group-flush mb-3">
-                    <li class="list-group-item">Kategori: {{ $b->category->name }}</li>
+
+                @php
+                $hargadiskon = ($b->harga - ((10*$b->harga)/100))
+                @endphp
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Harga: <s>{{ $b->harga }}</s> {{ $hargadiskon }}</li>
+                    <li class="list-group-item" style="font-size: 15px;">Kategori: {{ $b->category->name }}</li>
                 </ul>
             </div>
         </div>

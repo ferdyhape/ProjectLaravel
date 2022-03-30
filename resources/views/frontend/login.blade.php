@@ -1,5 +1,5 @@
 @extends('frontend.layouts.newmain')
-@section('container')z
+@section('container')
 <div class="container">
     <div class="row justify-content-center mt-5 mb-5">
 
@@ -45,8 +45,6 @@
                         <div class="mt-2"><a href="/registerAdmin">Register Admin</a></div>
                         <div class="mt-2"><a href="/registerUser">Register User</a></div>
                     </div>
-                    <!-- <small class="d-block mt-2"></small>
-                <small class="d-block"></small> -->
                 </form>
             </main>
         </div>

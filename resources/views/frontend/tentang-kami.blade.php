@@ -23,5 +23,4 @@
         </div>
     </div>
 </section>
-<!-- ***** Features Big Item End ***** -->
 @endsection
